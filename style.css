@@ -20,14 +20,6 @@ h1 {
     letter-spacing: 0.5pt;
 }
 
-.subtitle {
-    font-size: 11pt;
-    font-weight: 400;
-    color: #444;
-    margin: 0 0 4pt 0;
-    letter-spacing: 0.3pt;
-}
-
 .contact-bar {
     font-size: 9pt;
     color: #444;
@@ -57,13 +49,6 @@ h3 {
     font-weight: 700;
     margin: 8pt 0 1pt 0;
     color: #1a1a1a;
-}
-
-.company {
-    font-size: 11pt;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 10pt 0 1pt 0;
 }
 
 .dates {

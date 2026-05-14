@@ -2,13 +2,13 @@
 
 <div class="contact-bar">
 
-San Jose, CA | akhileshmalu@gmail.com | (803) 636-1363 | [GitHub](https://github.com/akhileshmalu) | [LinkedIn](https://linkedin.com/in/akhileshmaloo)
+San Francisco, CA | akhileshmalu@gmail.com | (803) 636-1363 | [GitHub](https://github.com/akhileshmalu) | [LinkedIn](https://linkedin.com/in/akhileshmaloo)
 
 </div>
 
 ## Summary
 
-Staff software engineer with 13+ years of experience designing and operating high-scale distributed systems across platform infrastructure, real-time messaging, and payments. Currently owns Tier-0 platform services and a foundational shared library powering 75+ microservices at Salesforce, with a focus on scalability (100K concurrent conversations), reliability (99.95% uptime), and developer experience. Proven track record of delivering measurable impact — 35x throughput improvement on event processing, 30% latency reduction at eBay's 200M+ calls/day checkout platform, and cross-border payment systems at Bill.com. Combines deep backend expertise in Java/Spring Boot, Kafka, gRPC, and Kubernetes with a bias toward ownership, observability, and shipping safely at scale.
+Staff software engineer with 13+ years of experience designing and operating high-scale distributed systems across platform infrastructure, real-time messaging, and payments. Deep expertise in Java/Spring Boot, Kafka, gRPC, and Kubernetes with a consistent focus on reliability, scalability, and developer experience. Strong track record of owning Tier-0 services end-to-end — from architecture through production operations — while driving org-wide improvements in deployment safety, observability, and operational efficiency. Actively leveraging AI-powered automation to accelerate incident response and developer productivity.
 
 ## Experience
 
@@ -26,6 +26,7 @@ Staff software engineer with 13+ years of experience designing and operating hig
 - Built automated Grafana dashboards integrated with SLO exporters, enabling self-service onboarding for new services and improving pager-duty investigation and resolution times.
 - Resolved critical GovCloud deployment blockers (BouncyCastle/OpenSAML incompatibilities) and patched time-sensitive 3PP vulnerabilities across production services.
 - Led production buildouts, moratorium exit criteria, and incremental rollout configuration with performance testing for safe, phased deployments.
+- Built AI-powered automation (50+ multi-agent skills) for incident triage, deployment monitoring, and oncall diagnostics — reducing routine operational toil and enabling faster resolution across the team.
 
 **Lead Member of Technical Staff — Messaging**
 <span class="dates">November 2021 — March 2023</span>
@@ -79,6 +80,8 @@ Staff software engineer with 13+ years of experience designing and operating hig
 **Infrastructure & CI/CD:** Kubernetes, Helm, Argo Rollouts, AWS (S3), Docker, Jenkins, Maven
 
 **Observability:** Splunk, Datadog, Grafana
+
+**AI & Automation:** Multi-Agent Orchestration, Claude Code Skills, AI-Assisted DevOps, LLM-Driven Incident Response
 
 **Testing:** JUnit, TestNG, Mockito, Selenium, Test Automation Frameworks
 
