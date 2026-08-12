@@ -2,7 +2,7 @@
 
 <div class="contact-bar">
 
-San Francisco, CA | akhileshmalu@gmail.com | (803) 636-1363 | [GitHub](https://github.com/akhileshmalu) | [LinkedIn](https://linkedin.com/in/akhileshmaloo)
+San Francisco, CA | akhileshmalu@gmail.com | (803) 636-1363 | [LinkedIn](https://linkedin.com/in/akhileshmaloo)
 
 </div>
 
@@ -17,33 +17,27 @@ Staff software engineer with 13+ years of experience designing and operating hig
 **Lead Member of Technical Staff — Platform Engineering**
 <span class="dates">December 2023 — Present</span>
 
-- Own and operate 3 Tier-0 and 2 Tier-1 platform services powering the real-time conversation platform — including a durable key-value store, an SSE-based event routing service, and a singleton key-distribution service — deployed on Kubernetes.
-- Maintain a core shared library (app starter) adopted by 75+ services across the service stack, serving as the foundational dependency for the organization's microservice ecosystem.
-- Enhanced the Event Bus Starter library with bi-directional streaming and batch event processing, reducing latency from ~7s to ~200ms and increasing throughput from 20 to 1,000 events/sec.
-- Led Spring Boot 3.4 / JDK 17 upgrade across platform services and shared libraries, achieving security compliance and unblocking 75+ downstream services from modernizing their stack.
-- Drove migration of all platform services to Helm add-on and Argo Rollout, enabling canary deployments that reduced blast radius for production releases; now advising other teams on safe adoption.
-- Architected bucket-snapshot handoff mechanism for the persistence layer, enabling seamless state transfers during restarts and rebalancing to support 100K concurrent conversations.
-- Built automated Grafana dashboards integrated with SLO exporters, enabling self-service onboarding for new services and improving pager-duty investigation and resolution times.
-- Resolved critical GovCloud deployment blockers (BouncyCastle/OpenSAML incompatibilities) and patched time-sensitive 3PP vulnerabilities across production services.
-- Led production buildouts, moratorium exit criteria, and incremental rollout configuration with performance testing for safe, phased deployments.
-- Built AI-powered automation (50+ multi-agent skills) for incident triage, deployment monitoring, and oncall diagnostics — reducing routine operational toil and enabling faster resolution across the team.
+- Designed and built an AI agent, integrated with Slack and PagerDuty, that automatically investigates production incidents using RAG-grounded runbook knowledge, Splunk logs, and internal time-series metrics, then drafts pre-validated remediation actions for human approval — resolves ~80% of incidents correctly in ~20 seconds, runs across the team's full 5-service on-call rotation, and has since been adopted by other teams for their own runbooks.
+- Led a year-long Spring Boot 3.4 / JDK 17 migration unblocking 75+ downstream services — root-caused multiple critical production regressions along the way and built the automated deployment-safety process (rollback triggers, staged rollouts) that's since become the team's standard for risky redeployments.
+- Led redesign of the platform's Kafka partitioning and persistence layer (spanning the durable key-value store, the shared client library, and the singleton key-distribution service) to eliminate lease-based partition management and Kafka write magnification for scaling to 100K+ concurrent conversations per org; cut aggregated query latency from 2-10s to a 1-18ms p95 and reduced service-to-service polling chatter ~87x (21.6M/hr to 247K/hr), now rolling out to production via a zero-downtime staged migration.
+- Built a net-new disaster recovery cell — writing to a dedicated Kafka cluster — isolating premium-tier customers into a separate availability zone, contributing to the org-wide replication effort; resolved cluster/broker assignment via a heuristic built into the shared library, so all 75+ services adopted it transparently through a routine upgrade with zero disruption.
+- Root-caused an undocumented runtime divergence between BouncyCastle and its FIPS-compliant variant — traced to custom EC curve handling, with no existing fix publicly available — and repackaged the library in Docker to exclude the problematic curves, closing a GovCloud compliance gap that was blocking a government customer's go-live.
+- Diagnosed unary event-publish failures caused by JWT auth tokens expiring in transit before reaching the eventing backend; converted the API to bi-directional streaming with cached auth validation and added batch event processing, cutting per-call latency from ~7s to ~200ms and raising throughput from 20 to 1,000 events/sec.
+- Piloted Salesforce's org-wide Argo Rollout addon on my team's services, then advised 20+ other platform teams (spanning 70+ services) on rollout configuration and pre-deployment validation strategy as they migrated off standard deployment objects — canary rollouts are now the org's default deployment path.
+- Hold end-to-end ownership of 3 Tier-0 and 2 Tier-1 platform services powering the real-time conversation platform — including a durable key-value store, an SSE-based event routing service, and a singleton key-distribution service — deployed on Kubernetes.
 
-**Lead Member of Technical Staff — Messaging**
+**Lead Member of Technical Staff — Full Stack Engineering**
 <span class="dates">November 2021 — March 2023</span>
 
-- Architected and built gRPC microservices for the conversation messaging platform — Send Message, Transfer, Conference, Typing Indicators, Read/Delivery Receipts — on a distributed, multi-tier system using Kafka, gRPC, and SSE.
-- Delivered full-stack real-time messaging UI in the Salesforce Lightning framework, achieving sub-millisecond push communications.
-- Developed an availability framework for front-end and back-end services, maintaining 99.95% uptime across component features.
-- Built and maintained 90% code coverage through unit, functional, integration, and disruptive testing.
+- Led design and delivery of Transfer and Conference — two real-time messaging features built from scratch, front-end through backend gRPC integration — running it as a cross-team program with other teams' leads and architects; also delivered feature upgrades to the platform's existing Send Message, Typing Indicators, and Read/Delivery Receipts services (Kafka, gRPC, SSE).
+- Instrumented client-side SLO availability signaling per feature via Salesforce's o11y library — each API call reports a feature-availability metric from the client's perspective — closing a blind spot server-side-only metrics miss; used for internal benchmarking, measuring 99.95% client-perceived availability across component features.
 
 <div class="company">Bill.com, San Jose</div>
 
 **Staff Software Engineer**
 <span class="dates">March 2023 — December 2023</span>
 
-- Led cross-functional delivery of Bank Search and FX Payment Processing features, driving international payments expansion for the platform.
-- Designed and built well-documented APIs for international payment workflows, serving both internal teams and external integrators.
-- Implemented comprehensive monitoring and alerting on Splunk and Datadog, enabling proactive detection of performance degradation and critical incidents.
+- Led design and backend integration for Bank Search — building the ability to search and update bank records — as part of Bill.com's international payment workflows.
 
 <div class="company">eBay, San Jose</div>
 
@@ -71,11 +65,13 @@ Staff software engineer with 13+ years of experience designing and operating hig
 
 ## Skills
 
-**Languages & Frameworks:** Java, Spring Boot, J2EE, JavaScript, Angular, HTML/CSS, PHP, Node.js
+**Languages & Frameworks:** Java, Spring Boot, Project Reactor, J2EE, JavaScript, Angular, HTML/CSS, PHP, Node.js
 
 **Data & Messaging:** Kafka, MySQL, MongoDB, Cassandra, Oracle SQL
 
 **APIs & Protocols:** gRPC, REST, SOAP, SSE
+
+**Reliability & Resilience:** Rate Limiting (Envoy External RLS), Backpressure / Flow Control (Bounded Blocking Queues)
 
 **Infrastructure & CI/CD:** Kubernetes, Helm, Argo Rollouts, AWS (S3), Docker, Jenkins, Maven
 
